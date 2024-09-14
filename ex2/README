@@ -1,0 +1,69 @@
+polinski, nivku
+316486299, 205717069
+
+1. We chose to delegate the responsibility of deleting bricks to the CollisionStrategy. every time there
+   is a collision, onCollisionEnter of the Brick will call
+   the onCollision of it strategy and the strategy will be removed.
+
+   Disadvantages:
+   1. The reason that the Strategy removes the brick, if there is DoubleBehaviorStrategy
+   the method should call by Super to the other strategies which do the same things for the brick.
+
+   Advantages:
+   2. Every Strategy has the responsibility for its own brick, hence, remove the brick
+   when there is a collision make it simple rule to keep.
+
+
+
+2. because the Graphic display and the Numeric display are depends both on the number of "hearts" in the
+game we decided to create class "LiveView" that includes display all the right objects
+(hearts and numera) and manage
+them by methods the remove and add the hearts.
+
+
+
+3. Add Life:
+   We created a class that implements the CollisionStrategy
+   In the ReturnDisqualificationStrategy onCollision method that we override: if there
+    is collision with Ball or Puck
+   the method creates Heart that fall down from the center screen and the strategy
+    removes the brick.
+
+   Add Paddle:
+   We created a class that implements the CollisionStrategy
+   In the AddPaddleStrategy onCollision method that we override: if there is collision
+    with Ball
+   the method creates and remove the brick.
+   also, we created a static boolean flag to check if there is only one SingletonPaddle
+   during the game (it's not depends on specific instance) in addition, the singletonPaddle
+   holds counter that every collision with ball or puck increments and after 4 collisions
+   removes itself.
+
+
+   special Camera:
+   We created a class that implements the CollisionStrategy
+   In the CameraCollisionStrategy onCollision method that we override: if there is
+    collision with Ball or Puck
+   the method checks if the camera is null and if so the method created game object of
+   SpecialCamera which counts 4 times that the ball hit any object and then sets the
+   camera to be null again.
+
+
+   AddBalls:
+   We created a class that implements the CollisionStrategy
+   In the AddBallsStrategy onCollision method that we override: if there is collision with Ball
+   the method creates new Puck ball at set the tag of it to puck to classify other
+   Processes during the game.
+
+
+4.DoubleBehavior implements CollisionStrategy, in its constructor this strategy
+ randomly choose 2 or 3 behavior, were
+first it choose between all possible strategies include itself and if the
+ DoubleBehavior selected it will choose
+3 behaviors, else choose 2. on collision this strategy will call all the
+"onCollision" methods that it choose earlier.
+
+
+
+
+

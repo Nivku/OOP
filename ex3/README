@@ -1,0 +1,64 @@
+polinski, nivku
+316486299, 205717069
+
+1.
+Exceptions Package:
+This package contains custom exception classes for handling specific error scenarios.
+IncorrectCommandException: Signals an error when an invalid argument value is encountered.
+This exception is explicitly declared to ensure clarity in error handling.
+IncorrectFormatException: This exception is raised when encountering
+string that does not conform to the expected format or structure.
+OutOfBoundsResException: Represents an error when an argument value falls outside the allowed range.
+CharSetEmptyException: This exception is raised when attempting to run
+the algorithm but the provided character set is empty.
+
+Image Package:
+Image: Represents an image object.
+Utils: Contains various static functions and utilities for image manipulation.
+
+ImageCharacterMatching Package:
+CharConverter: Provides functions for converting characters to images and
+representing brightness.
+SubImageMatcher: Matches brightness levels to characters from a specified
+character set. It relies on the Image class.
+
+ASCII Art Package:
+This package focuses on ASCII art generation algorithms.
+AsciiOutputFactory: this is factory to create objects implements the interface
+AsciiOutput, It incorporates a ConsoleAsciiOutput and HtmlAsciiOutput.
+AsciiArtAlgorithm: Implements the main algorithm for ASCII art generation. It incorporates a SubImageMatcher
+and an Image object.
+KeyboardInput: Provided for user or test input handling.
+Shell: Facilitates interaction with the user to adjust algorithm parameters and execute ASCII art generation.
+It contains SubImageMatcher and depend Image, AsciiOutputFactory and KeyboardInput.
+
+2.in SubImgCharMather -
+    class TreeMap<Double, TreeSet<Integer>> charTreeSet - this data structures hold all the current
+     chars as a set
+    that suitable to its brightness as key, when we need specific brightness we can find in O(logn)
+    the closest
+    brightness to it from the possible brightness, the Tree set can give us the lowest value char
+     with that
+    brightness in O(1).
+    TreeMap<Double, Integer> stretchedSet -this data structures hold all the current chars as a set
+    that suitable to its brightness as key, when we need specific brightness we can find in
+     O(logn) the closest
+    brightness to it from the possible brightness
+    Set<Integer> setToPrint - an Collection data structure that can be iterate and cannot hold double values,
+    this structure used for get the String of the class.
+
+3. we created 4 new Exception classes IncorrectFormatException, OutOfBoundsResException,
+ IncorrectCommandException and CharSetEmptyException all inheritance from the class exception
+  been a checked
+ exception. all this exceptions has been throw in the current scope the error happened and been
+  takin care of in
+ the shell class in the run method.
+
+4. we didnt change the API, we only override the method toString so when we needed to
+print the current chars
+that will be relevant foe the algorithm this method return a correct representation of them.
+
+
+
+
+

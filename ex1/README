@@ -1,0 +1,18 @@
+nivku
+205717069
+
+1.The CleverPlayer wants to mark rows and the GeniusPlayer
+wants to mark columns. When they mark their first cell they will
+mark the first cell that is empty, which will result for advantage for the GeniusPlayer
+because it blocks the CleverPlayer.
+when the GeniusPlayer wants to mark the next cell the player will check if the next cell
+in the colum is empty,if not - the player will mark the next empty cell and will try again
+to mark columns. Same tactic for CleverPlayer for rows but when the next cell in the
+row is not empty the player will randomly select empty cell.
+In addition,the WhateverPlayer marks randomly cells. then they will beat him in most games.
+
+2. Designing the software in this way allows us to later create additional players
+with different game tactics, each player has different tactis and at this way we program
+to interface and not to implementation. the user sees the different player as the same
+ object by using the same method of playTurn();
+The pillars are - Polymorphism and Encapsulation
